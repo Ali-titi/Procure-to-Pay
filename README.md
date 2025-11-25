@@ -74,7 +74,6 @@ procure-to-pay/
 | **Approver Level 1** | View pending L1 requests, approve/reject with comments |
 | **Approver Level 2** | View pending L2 requests, approve/reject with comments |
 | **Finance** | Validate goods received, upload receipt documents, mark completion |
-| **Admin** | Full CRUD access, manage users, view analytics |
 
 ## 🔄 Workflow Process
 
@@ -88,7 +87,7 @@ procure-to-pay/
 ### User Model
 - `name`: Full name
 - `email`: Unique email address
-- `role`: User role (staff, approver1, approver2, finance, admin)
+- `role`: User role (staff, approver1, approver2, finance)
 - `created_at`: Account creation timestamp
 
 ### PurchaseRequest Model
@@ -133,26 +132,6 @@ After running `npm run setup`, you can login with these test accounts:
 | **Approver 1** | `approver1@example.com` | `approver123` | Approve level 1 requests |
 | **Approver 2** | `approver2@example.com` | `approver123` | Approve level 2 requests |
 | **Finance** | `finance@example.com` | `finance123` | Validate receipts |
-| **Admin** | `admin@example.com` | `admin123` | Full access (Django admin) |
-
-## 📊 Demo Data
-
-After running `npm run setup`, your database will contain:
-
-- **13+ Sample Purchase Requests** with different statuses:
-  - Office Equipment Purchase (Approved) - $2,900
-  - Software Licenses (Approved) - $899.97
-  - Conference Room Setup (Pending) - $2,420
-  - IT Infrastructure (Approved) - $164.99
-  - Office Supplies (Rejected) - $395
-  - Consulting Services (Pending) - $2,500
-  - And more demo requests...
-
-- **Purchase Items** for each request with pricing
-- **Multi-level Approval Workflows** with proper timestamps
-- **Complete Audit Trail** for testing all user roles
-- **Real-time Data Updates** - No more page refreshes needed!
-- **Sequential Indexing** - Clean numbered lists instead of database IDs
 
 ## 🛠️ Available Scripts
 
@@ -169,7 +148,7 @@ After running `npm run setup`, your database will contain:
 
 ### Authentication
 - `POST /api/auth/login/` - User login
-- `POST /api/auth/register/` - User registration (admin only)
+- `POST /api/auth/register/` - User registration 
 - `POST /api/auth/logout/` - User logout
 - `POST /api/auth/refresh/` - Refresh JWT token
 - `GET /api/auth/profile/` - Get user profile
@@ -250,16 +229,6 @@ DATABASE_URL=postgresql://user:password@db:5432/procuretopay
 - **Receipt validation** against purchase orders
 - **Real-time status updates** and notifications
 
-### ✅ New Features (Latest Update)
-- **Enhanced User Model** with name, email uniqueness, and admin role
-- **Complete Workflow Logic** with 8 status states
-- **Attachment System** for request documentation
-- **Finance Validation** with receipt status tracking
-- **Role-based API Filtering** - users see only relevant data
-- **Comprehensive Audit Trail** with approval history
-- **Docker Containerization** for easy deployment
-- **PostgreSQL Support** for production databases
-
 ### ✅ Technical Features
 - **RESTful API Design** with Django REST Framework
 - **Responsive React Frontend** with TypeScript
@@ -287,18 +256,3 @@ cd frontend
 npm install
 npm run dev
 ```
-
-## 📝 License
-
-MIT License - see LICENSE file for details.
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
----
-
-**Happy coding! 🎉**
